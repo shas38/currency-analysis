@@ -1,0 +1,23 @@
+{
+  "name": "currency-analysis",
+  "version": "1.0.0",
+  "description": "A full stack application for analyzing currency based on historical data",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shas38/currency-analysis.git"
+  },
+  "keywords": [
+    "currency",
+    "analysis"
+  ],
+  "author": "Shahriar Hasan Khan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shas38/currency-analysis/issues"
+  },
+  "homepage": "https://github.com/shas38/currency-analysis#readme"
+}
