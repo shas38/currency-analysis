@@ -1,3 +1,3 @@
-"use struct";
+'use struct';
 
-console.log("h");
+console.log('h');

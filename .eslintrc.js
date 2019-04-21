@@ -7,10 +7,10 @@ module.exports = {
     node: true,
     es6: true
   },
+  // extends: "standard",
   extends: "eslint:recommended",
-  plugins: ["react"],
+  // plugins: ["react"],
   rules: {
-    "no-empty": "error",
     "no-multiple-empty-lines": "warn",
     "no-var": "error",
     "prefer-const": "error",
