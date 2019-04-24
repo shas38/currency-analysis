@@ -1,8 +1,9 @@
+// Import necessary libraries
 import React from 'react';
 import Table from 'react-bootstrap/Table'
 import Moment from 'react-moment'
 import moment from 'moment'
-
+// Functional component for dispaying the form
 const ProfitTable = (props: any) => {
   return (
     <div>
@@ -18,7 +19,6 @@ const ProfitTable = (props: any) => {
       </Table>
     </div>
   )
-
 }
-
+// Export the component as the default object
 export default ProfitTable;
