@@ -1,14 +1,14 @@
 // This file handles the /metadata route
 "use strict";
 
-const meta = require('express').Router();
+import * as express from "express";
+import * as path from "path";
 
+const router = express.Router();
 
-meta.get('/', (req, res) => {
+router.get('/', (req, res) => {
     // console.log(process.env.npm_package_description)
-    let result = {
-    }
-    res.status(200).json(result); // Reply with the result object
+    res.sendFile(path.join(__dirname, '../../client/build'));
 })
 
-module.exports = meta;
+export default router;
