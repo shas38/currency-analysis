@@ -1,5 +1,10 @@
 # currency-analysis
-A full stack application for analyzing currency based on historical data.
+This project contains a full stack application for analysing currency based on historical data. The application reads the data from a <b>json</b> file and filters it based on the 'from date' and 'to date' interval as well as currencies selected by the user. The application then analyses the data to find the best possible buy price, buy time, sell price, sell time and the profit for each one of the selected currencies. 
+
+The application uses the following technologies:
+- Backend: NodeJs with an ExpressJs server
+- Frontend: ReactJs 
+- Type Cheching: Typescript
 
 <img src="images/currencyAnalyser.PNG">
 ## Getting Started
