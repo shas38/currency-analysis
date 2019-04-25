@@ -1,7 +1,7 @@
 'use struct';
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const path = require("path");
+var path = require("path");
 module.exports = {
     development: {
         sitename: 'Currency Analyser [Development]',
@@ -16,3 +16,4 @@ module.exports = {
         }
     },
 };
+//# sourceMappingURL=index.js.map

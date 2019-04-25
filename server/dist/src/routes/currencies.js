@@ -1,4 +1,4 @@
-'use struct';
+// This file handles the /api/currencies route
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -39,66 +39,41 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 // Import necessary libraries
 var express = require("express");
-var bodyParser = require("body-parser");
 var path = require("path");
-var createError = require("http-errors");
-var configs = require("../config");
-var profits_1 = require("./routes/profits");
-var currencies_1 = require("./routes/currencies");
-var routes_1 = require("./routes");
-// Port on which incoming requests will arrive
-var port = 5000;
-// Create the application
-var app = express();
-// Load the configs
-var config = configs[app.get('env')];
-// Set sitename
-app.locals.title = config.sitename;
-// support json encoded bodies
-app.use(bodyParser.json());
-// support urlencode
-app.use(bodyParser.urlencoded({ extended: true }));
-// Set the public static folder containing the front end template and logic
-app.use(express.static(path.join(__dirname, '../public')));
-// If dev env then set pretty to true
-if (app.get('env') === 'development') {
-    app.locals.pretty = true;
-}
-// Add the title to the response
-app.use(function (req, res, next) { return __awaiter(_this, void 0, void 0, function () {
+var currencyAnalyser_1 = require("../services/currencyAnalyser");
+// Use the express router function to create a new route
+var router = express.Router();
+/*
+  get route for fetching all the currency names
+  This route does not take any arguments
+  It returns the a list of currency names
+*/
+router.get('/', function (req, res, next) { return __awaiter(_this, void 0, void 0, function () {
+    var currencyAnalyser, result, err_1;
     return __generator(this, function (_a) {
-        res.locals.status = app.locals.title;
-        // Call the next function
-        return [2 /*return*/, next()];
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                currencyAnalyser = new currencyAnalyser_1.default([], path.join(__dirname, '../../data/currency.json'));
+                // Load the most recent data
+                return [4 /*yield*/, currencyAnalyser.reloadData()
+                    // Get all the currency names
+                ];
+            case 1:
+                // Load the most recent data
+                _a.sent();
+                result = currencyAnalyser.getCurrencies();
+                // Return the currency list
+                res.status(200).json(result); // Reply with the result object
+                return [3 /*break*/, 3];
+            case 2:
+                err_1 = _a.sent();
+                // If there is an error then pass the error to the next function
+                return [2 /*return*/, next(err_1)];
+            case 3: return [2 /*return*/];
+        }
     });
 }); });
-app.use('/', routes_1.default); // Connect the base route to the route handling function stored inside /routes/index
-app.use('/api/profits', profits_1.default); // Connect the /api/profits route to the route handling function stored /routes/profits
-app.use('/api/currencies', currencies_1.default); // Connect the /api/currencies route to the route handling function stored /routes/currencies
-// Middleware for handleing error
-app.use(function (req, res, next) {
-    return next(createError(404, 'File not found'));
-});
-// Middleware for handleing error
-app.use(function (err, req, res, next) {
-    res.locals.message = err.message;
-    var status = err.status || 500;
-    res.locals.status = status;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-    res.status(status);
-    // respond with html page
-    if (req.accepts('html')) {
-        return res.status(404).redirect('back');
-    }
-    // respond with json
-    if (req.accepts('json')) {
-        return res.send({ error: 'Not found' });
-    }
-    // default to plain-text. send()
-    return res.type('txt').send('Not found');
-});
-// Run the web app and store the returned variable for later export
-var server = app.listen(port, function () { return console.log("Listening on " + port); });
-// Export the server for unit testing
-exports.default = server;
-//# sourceMappingURL=app.js.map
+// Export router as the default object
+exports.default = router;
+//# sourceMappingURL=currencies.js.map

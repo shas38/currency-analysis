@@ -3,7 +3,7 @@ import React from 'react';
 import Table from 'react-bootstrap/Table'
 import Moment from 'react-moment'
 import moment from 'moment'
-// Functional component for dispaying the form
+// Functional component for dispaying the profit data
 const ProfitTable = (props: any) => {
   return (
     <div>

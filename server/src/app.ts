@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 // support urlencode
 app.use(bodyParser.urlencoded({ extended: true }));
 // Set the public static folder containing the front end template and logic
-app.use(express.static(path.join(__dirname, '../../client/build')));
+app.use(express.static(path.join(__dirname, '../public')));
 // If dev env then set pretty to true
 if (app.get('env') === 'development') {
   app.locals.pretty = true;
@@ -41,12 +41,10 @@ app.use('/api/currencies', currencies); // Connect the /api/currencies route to 
 
 // Middleware for handleing error
 app.use((req, res, next) => {
-  console.log('first')
   return next(createError(404, 'File not found'));
 });
 // Middleware for handleing error
 app.use((err, req, res, next) => {
-  console.log('second')
   res.locals.message = err.message;
   const status = err.status || 500;
   res.locals.status = status;
