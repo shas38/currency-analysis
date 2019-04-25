@@ -1,7 +1,7 @@
 # currency-analysis
-A full stack application for analyzing currency based on historical data
+A full stack application for analyzing currency based on historical data.
 
-
+<img src="images/CICD_Pipeline.PNG">
 ## Getting Started
 
 ```bash
