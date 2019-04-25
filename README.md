@@ -4,7 +4,7 @@ This project contains a full stack application for analysing currency based on h
 The application uses the following technologies:
 - Backend: NodeJs with an ExpressJs server
 - Frontend: ReactJs 
-- Type Cheching: Typescript
+- Type Checking: Typescript
 
 <img src="images/currencyAnalyser.PNG">
 
@@ -24,6 +24,31 @@ There are three routes:
 - http://localhost:5000/api/currencies  - accepts GET requests for retrieving all the unique currencies
 - http://localhost:5000/api/profits     - accepts POST requests with fromDate, toDate and a list of currencies as post data
                                           e.g. {fromDate: '20180507', fromDate: '20180507', currencySelected: ['BTC', 'ETC']}
+```
+## Project Structure
+
+```
+currency-analysis
+|
+|--server
+|   |--src
+|      |--routes
+|      |  |--currencies.ts
+|      |  |--index.ts
+|      |  |--profits.ts
+|      |--services
+|      |  |--currencyAnalyser.ts
+|      |  |--currencyDataFormatter.ts
+|      |  |--profitAnalyser.ts
+|      |--app.ts
+|
+|   |--test
+|   |--coverage
+|   |--test
+|   |--data
+|   |--public
+|   |--dist
+|--client
 ```
 
 ## Development
