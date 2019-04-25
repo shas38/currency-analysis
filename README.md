@@ -25,6 +25,30 @@ There are three routes:
 - http://localhost:5000/api/profits     - accepts POST requests with fromDate, toDate and a list of currencies as post data
                                           e.g. {fromDate: '20180507', fromDate: '20180507', currencySelected: ['BTC', 'ETC']}
 ```
+
+## Scripts
+
+### Server
+
+```
+- npm run eslint           - will run the linter checks
+- npm test                 - will run all the tests
+- npm run coverage         - will generate code coverage reports
+- npm run build            - will generate generate .js from the .ts files for production use
+- npm run build:watch      - will generate generate .js from the .ts files for production use and watch for changes
+- npm run dev              - will run the dev server
+- npm start            - will start the production server
+```
+
+### Client
+
+```
+- npm run build            - will run webpact to generate static content out of jsx
+- npm test                 - will run all the tests
+- npm run eject            - will give access to all config files
+- npm start                - will start the dev server
+```
+
 ## Project Structure
 
 ### Overall Structure
