@@ -7,20 +7,23 @@ The application uses the following technologies:
 - Type Cheching: Typescript
 
 <img src="images/currencyAnalyser.PNG">
-## Getting Started
 
+## Getting Started
 ```bash
+cd ./server
 npm install
 npm start
 ```
 
-The server runs on port 3000.
+The server runs on port 5000.
 
 There are three routes:
 
-- http://localhost:3000/ - homepage
-- http://localhost:3000/reservations - submit a reservation booking request
-- http://localhost:3000/admin - view all booking requests; basic auth login/password `admin`
+- http://localhost:5000/                - homepage
+- http://localhost:5000/api/currencies  - accepts get requests for retrieving all the unique currencies
+- http://localhost:5000/api/profits     - accepts post requests with fromDate, toDate and a list of currencies as post data
+                                          e.g. {fromDate: '20180507', fromDate: '20180507', currencySelected: ['BTC', 'ETC']}
+
 
 The server persists using a SQLite3 database named `database.sqlite` in the site root.
 
