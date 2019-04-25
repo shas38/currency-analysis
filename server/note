@@ -1,3 +1,0 @@
-"start": "tsc && copyfiles ../client/build/**.* ./dist/build && ts-node ./dist/server/src/app.js"
-
-ts-node src/app.ts
