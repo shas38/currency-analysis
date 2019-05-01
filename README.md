@@ -69,8 +69,8 @@ There are three routes:
 ### Client Structure
 
 1. The `client/src/App.tsx` directory contains the root react component for the Frontend.
-2. The `server/src/dateForm.tsx` directory contains the functional component for generating the form.
-3. The `server/src/profitTable.tsx` directory contains the functional component for creating the profit tables.
+2. The `client/src/dateForm.tsx` directory contains the functional component for generating the form.
+3. The `client/src/profitTable.tsx` directory contains the functional component for creating the profit tables.
 
 ## Development
 
